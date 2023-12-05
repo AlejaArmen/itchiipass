@@ -18,7 +18,7 @@ export default function LoginButton({ onClick }) {
     <>
       <div className="max-sm:">
         <button
-          className="bg-neutralbtn hover:bg-successbtn text-white font-bold flex justify-center my-5 mx-4 p-3 rounded-3xl text-lg"
+          className="bg-gray hover:bg-hoverColor text-primary font-bold flex justify-center p-2 rounded-3xl text-lg"
           onClick={onClick}
         >
         {isMobile ?(
@@ -28,7 +28,7 @@ export default function LoginButton({ onClick }) {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            className="roun w-8 h-8 stroke-primary bg-transparent"
+            className="roun w-6 h-6 stroke-primary bg-transparent"
           >
             <path
               strokeLinecap="round"

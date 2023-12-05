@@ -1,18 +1,32 @@
-
-export default function Home(){
-  return(
+export default function Home() {
+  return (
     <>
-    <div className="flex flex-col items-center pt-64">
-        <h1 className="text-6xl font-bold mb-4">Bienvenidos Bisontes</h1>
-        <div>
+      {/* Pagina de inicio */}
 
-        <input type="text" className="bg-primary p-2 rounded-lg mb-4 text-2xl" placeholder="Introduce codigo" />
-        </div>
-        <div>
+      <form className="flex flex-col items-center">
+        <h2 className="text-6xl py-10 flex max-sm:ml-24 font-medium">
+          Bienvenidos Bisontes
+        </h2>
+        <div className="flex flex-col gap-5 items-center">
+          <label htmlFor="code" className="text-3xl">
+            Ingresa codigo de evento aquí
+          </label>
 
-        <button className="bg-cardBackground text-3xl m-4 p-4 rounded-2xl hover:bg-successbtn">Ingresar</button>
+          <input
+            id="code"
+            placeholder="Enter your code here"
+            required
+            className="bg-primary text-2xl py-3 pl-4 rounded-lg border-2 border-black"
+          />
+
+          <button
+            className="w-1/2 mt-4 bg-gray rounded-full py-2 hover:bg-hoverColor text-2xl"
+            type="submit"
+          >
+            Confirm
+          </button>
         </div>
-      </div>
+      </form>
     </>
-  )
+  );
 }

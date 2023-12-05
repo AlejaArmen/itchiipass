@@ -14,13 +14,20 @@ module.exports = {
       },
     },
     colors: {
+      transparent: "transparent",
       primary: "#F0ECE5",
       successbtn: "#0CF25D",
+      hoverColor: "#04BB44",
       failed: "#F20C0C",
       background: "#161A30",
       cardBackground: "#31304D",
-      neutralbtn : "#13D4E0"
+      neutralbtn : "#13D4E0",
+      gray: "#BCC6C6",
+      black: "#000",
+      
     },
   },
   plugins: [],
 }
+
+
