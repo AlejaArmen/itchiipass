@@ -22,10 +22,19 @@ module.exports = {
       background: "#161A30",
       cardBackground: "#31304D",
       neutralbtn : "#13D4E0",
+      deepNeutralbtn : "#0F9BAF",
       gray: "#BCC6C6",
+      deepGray: "#6B6D6C",
+      lightGray: "#F0F0F0",
       black: "#000",
-      
+      yelow: "#DDC10E",
     },
+    screens: {
+      'mobile': '320px',
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
+    }
   },
   plugins: [],
 }

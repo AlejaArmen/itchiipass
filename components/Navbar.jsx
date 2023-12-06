@@ -18,28 +18,30 @@ export default function NavBar() {
   return (
     <>
       <nav className="">
-        <div className="">
-          <div className="flex items-center justify-between px-4 py-2">
-            <img
-              src="/itchii-logo.png"
-              className=""
-              height="50"
-              width="50"
-              alt=""
-            />
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/"
-                className="no-underline text-primary font-semibold"
-              >
-                <h1 className="text-2xl text-primary">ITCHIIPASS</h1>
-              </Link>
-            </div>
-              <LoginButton className="bg-trasparent" onClick={openModal} />
-              <LoginModal isOpen={isModalOpen} onClose={closeModal} />
-              <img src="/tecnm-logo.png" className="" height="50" width="50" alt="" />
+        <div className="flex items-center justify-between px-4 py-2">
+          <img
+            src="/itchii-logo.png"
+            className="desktop:w-32 desktop:h-32"
+            height="50"
+            width="50"
+            alt=""
+          />
 
-          </div>
+          <Link href="/" className="no-underline text-primary font-semibold">
+            <h1 className="text-2xl desktop:text-6xl desktop:px-64 text-primary">
+              ITCHIIPASS
+            </h1>
+          </Link>
+
+          <LoginButton className="bg-trasparent" onClick={openModal} />
+          <LoginModal isOpen={isModalOpen} onClose={closeModal} />
+          <img
+            src="/tecnm-logo.png"
+            className="desktop:w-32 desktop:h-32"
+            height="50"
+            width="50"
+            alt=""
+          />
         </div>
       </nav>
     </>
