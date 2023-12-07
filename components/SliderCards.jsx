@@ -74,26 +74,25 @@ const escolarEvents = [
 
 
 export default function CardSlides() {
-  const [asistiendo, setAsistiendo] = useState(Array(escolarEvents.length).fill(false));
-  
-  const toggleAsistencia = (index) => {
-    const newAsistencias = [...asistiendo];
-    newAsistencias[index] = !newAsistencias[index];
-    setAsistiendo(newAsistencias);
+  const [estadosRegistro, setEstadosRegistro] = useState(escolarEvents.map(() => false));
+  const handleClic = (index) => {
+    const nuevosEstadosRegistro = [...estadosRegistro];
+    nuevosEstadosRegistro[index] = !nuevosEstadosRegistro[index];
+    setEstadosRegistro(nuevosEstadosRegistro);
   };
-    
+
   return (
     <>
       <div className="flex mobile:flex-col">
         {escolarEvents.map((evento, index) => (
           <div
             key={index}
-            className="flex flex-col gap- border-dashed border-white rounded-3xl p-4 laptop:mx-72 laptop:p-12 mobile:m-8 bg-gray-800"          >
+            className="flex flex-col gap- border-dashed border-white rounded-3xl p-4 desktop:mx-96 desktop:p-12 mobile:m-8 bg-gray-800"          >
             <h3 className="text-primary text-3xl font-bold mb-2 laptop:text-center">
               {evento.title}
             </h3>
             <img
-              className="w-72 h-40 laptop:w-96 laptop:pb-8 laptop:h-auto my-4 rounded-lg self-center"
+              className="w-72 h-40 desktop:w-96 desktop:pb-8 desktop:h-auto my-4 rounded-lg self-center"
               src={evento.image}
               alt={evento.title}
             />
@@ -102,16 +101,14 @@ export default function CardSlides() {
             <p className="text-primary text-lg mb-2">Lugar: {evento.place}</p>
             <p className="text-primary text-lg mb-2">Descripción: {evento.description}</p>
             <button
-              onClick={() => toggleAsistencia(index)}
-              className={`bg-${asistiendo[index] ? 'failed' : 'successbtn'} hover:bg-deepGray text-2xl w-auto self-center m-3 p-3 rounded-2xl border-none`}
+              onClick={() => handleClic(index)}
+              className={`${estadosRegistro[index] ? 'bg-red' : 'bg-successbtn'} hover:bg-deepGray text-2xl w-auto self-center m-3 p-3 rounded-2xl border-none`}
             >
-              {asistiendo[index] ? 'Cancelar' : 'Registrarse'}
+              {estadosRegistro[index] ? 'Cancelar' : 'Registrarse'}
             </button>
           </div>
         ))}
       </div>
-      
-
     </>
   );
 }

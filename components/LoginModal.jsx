@@ -12,7 +12,7 @@ export default function LoginModal({ isOpen, onClose }) {
     >
       {/*Formulario de inicio de sesión*/}
       <form className="flex flex-col items-center bg-transparent gap-2 laptop:gap-0">
-        <h1 className="bg-transparent text-deepGray pb-8 laptop:pb-4">Inicar sesión</h1>
+        <h1 className="bg-transparent text-deepGray pb-8 laptop:pb-4">Iniciar sesión</h1>
         {/*Correo*/}
         <label htmlFor="" className="bg-transparent text-2xl text-deepGray">
           Correo institucional

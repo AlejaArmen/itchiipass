@@ -19,6 +19,7 @@ module.exports = {
       successbtn: "#04BB44",
       hoverColor: "#04BB44",
       failed: "#F20C0C",
+      red: "#F20C0C",
       background: "#161A30",
       cardBackground: "#31304D",
       neutralbtn : "#13D4E0",

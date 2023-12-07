@@ -1,34 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import Link from "next/link";
 
 export default function CodeModal({ isOpen, onClose }) {
+  const [codigoValido, setCodigoValido] = useState(false);
+  const [codigoInvalido, setCodigoInvalido] = useState(false);
+
+  const handleValidarAsistencia = () => {
+    const codigoIngresado = document.getElementById("codigoEvento").value;
+    const codigoEsValido = codigoIngresado === "12345"; // Cambia esta condición según tus necesidades
+
+    setCodigoValido(codigoEsValido);
+    setCodigoInvalido(!codigoEsValido);
+  };
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (isOpen) {
+      timeoutId = setTimeout(() => {
+        onClose();
+        setCodigoValido(false);
+        setCodigoInvalido(false);
+      }, 9000);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onClose}
       className="rounded-3xl m-8 bg-primary p-8 desktop:mx-96 mt-24 laptop:mx-36 shadow-xl border-none shadow-deepGray"
     >
-      {/*Formulario de inicio de sesión*/}
-      <form className="flex flex-col items-center bg-transparent gap-2 laptop:gap-0">
+      {/* Formulario de validación de asistencia */}
+      <div className="flex flex-col items-center bg-transparent gap-2 laptop:gap-0">
         <h1 className="bg-transparent text-deepGray pb-8 laptop:pb-4 text-center">
           Validar asistencia
         </h1>
-        {/*Correo*/}
-        <label
-          htmlFor=""
-          className="bg-transparent text-2xl text-deepGray pb-4"
-        >
+        {/* Código del evento */}
+        <label htmlFor="" className="bg-transparent text-2xl text-deepGray pb-4">
           Ingrese el código del evento
         </label>
         <div className="bg-transparent flex flex-col">
           <input
-            type="email"
-            name="email"
+            id="codigoEvento"
+            type="text"
             className="p-4 desktop:w-96 text-center laptop:w-80 laptop:px-0 text-xl rounded-2xl text-primary border-none"
             placeholder="Código"
           />
-          <button className="bg-deepNeutralbtn hover:bg-hoverColor w-24 p-4 rounded-3xl border-none self-center mt-4">
+          <button
+            onClick={handleValidarAsistencia}
+            className="bg-deepNeutralbtn hover:bg-hoverColor w-24 p-4 rounded-3xl border-none self-center mt-4"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,13 +73,19 @@ export default function CodeModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        <button
-          onClick={onClose}
-          className="mt-8 text-lg rounded-3xl p-3 border-none hover:bg-failed"
-        >
-          Cerrar
-        </button>
-      </form>
+        {/* Mensajes de validación */}
+        {codigoValido && (
+          <div className="bg-successbtn text-white p-4 rounded-2xl mt-4">
+            Asistencia validada correctamente
+          </div>
+        )}
+
+        {codigoInvalido && (
+          <div className="bg-red text-white p-4 rounded-2xl mt-4">
+            Código no válido. Intente nuevamente.
+          </div>
+        )}
+      </div>
     </Modal>
   );
 }
