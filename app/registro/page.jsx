@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function RegistroPage() {
   return (
-    <div className="flex flex-col items-center pt-32">
-      <form className="flex flex-col bg-primary rounded-3xl border-none shadow-md shadow-deepGray items-center p-4 desktop:w-96 desktop:p-16 gap-4 ">
+    <div className="flex flex-col items-center pt-28 laptop:pt-16">
+      <form className="flex flex-col bg-primary rounded-3xl border-none shadow-md shadow-deepGray items-center p-4 desktop:w-96 laptop:p-12 desktop:p-16 gap-4 ">
         <h1 className="bg-transparent text-deepGray text-5xl">Registro</h1>
         <label htmlFor="" className="bg-transparent text-deepGray text-3xl">Numero de control</label>
         <input type="text" placeholder="#Control"  className="desktop:w-96 desktop:text-center text-xl p-2 border-none rounded-xl text-center"/>

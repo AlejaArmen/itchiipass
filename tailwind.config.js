@@ -16,7 +16,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       primary: "#F0ECE5",
-      successbtn: "#0CF25D",
+      successbtn: "#04BB44",
       hoverColor: "#04BB44",
       failed: "#F20C0C",
       background: "#161A30",
@@ -25,6 +25,7 @@ module.exports = {
       deepNeutralbtn : "#0F9BAF",
       gray: "#BCC6C6",
       deepGray: "#6B6D6C",
+      moreDeepGray: "#444444",
       lightGray: "#F0F0F0",
       black: "#000",
       yelow: "#DDC10E",

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 export default function LoginButton({ onClick }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -8,38 +8,52 @@ export default function LoginButton({ onClick }) {
       setIsMobile(window.innerWidth <= 768);
     };
     checkWindowSize();
-    window.addEventListener('resize', checkWindowSize);
-    return()=>{
-      window.removeEventListener('resize', checkWindowSize);
+    window.addEventListener("resize", checkWindowSize);
+    return () => {
+      window.removeEventListener("resize", checkWindowSize);
     };
-  },[]);
+  }, []);
 
   return (
     <>
-      <div className="max-sm:">
+      <div className="bg-transparent">
         <button
-          className="bg-gray hover:bg-hoverColor text-primary font-bold flex justify-center p-2 rounded-3xl text-lg"
+          //Boton de inicio de sesión
+          className="bg-deepNeutralbtn hover:bg-hoverColor text-primary font-bold flex justify-center shadow-md shadow-background p-2 rounded-3xl text-lg border-none"
           onClick={onClick}
         >
-        {isMobile ?(
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            className="roun w-6 h-6 stroke-primary bg-transparent"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-            />
-          </svg>
-        ) : (
-          "Inicio de sesión"
-        )
-        }
+          {isMobile ? (
+            //Icono de inicio de sesión para dispositivos móviles
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              className="w-16 h-16 stroke-primary bg-transparent"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          ) : (
+            //Icono de inicio de sesión para dispositivos de escritorio
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="white"
+              className="w-16 h-16 bg-transparent"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          )}
         </button>
       </div>
     </>

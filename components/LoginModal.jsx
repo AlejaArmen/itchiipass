@@ -8,11 +8,11 @@ export default function LoginModal({ isOpen, onClose }) {
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Iniciar sesión"
-      className="rounded-3xl m-8 bg-primary p-8 desktop:mx-96 desktop:mt-24 shadow-xl border-none shadow-deepGray"
+      className="rounded-3xl m-8 bg-primary p-8 desktop:mx-96 desktop:mt-24 laptop:mx-36 shadow-xl border-none shadow-deepGray"
     >
       {/*Formulario de inicio de sesión*/}
-      <form className="flex flex-col items-center bg-transparent gap-2">
-        <h1 className="bg-transparent text-deepGray pb-8">Inicar sesión</h1>
+      <form className="flex flex-col items-center bg-transparent gap-2 laptop:gap-0">
+        <h1 className="bg-transparent text-deepGray pb-8 laptop:pb-4">Inicar sesión</h1>
         {/*Correo*/}
         <label htmlFor="" className="bg-transparent text-2xl text-deepGray">
           Correo institucional
@@ -20,7 +20,7 @@ export default function LoginModal({ isOpen, onClose }) {
         <input
           type="email"
           name="email"
-          className="p-4 desktop:w-96 desktop:text-center text-lg rounded-2xl text-primary border-none"
+          className="p-4 desktop:w-96 text-center laptop:w-full laptop:px-0 text-lg rounded-2xl text-primary border-none"
           placeholder="#Control@chihuahua2.tecnm.mx"
         />
         {/*Contraseña*/}
@@ -30,13 +30,13 @@ export default function LoginModal({ isOpen, onClose }) {
         <input
           type="password"
           placeholder="Contraseña"
-          className="desktop:w-96 desktop:text-center p-4 text-lg rounded-2xl border-none text-primary"
+          className="desktop:w-96 text-center p-4 text-lg laptop:w-full laptop:px-0 rounded-2xl border-none text-primary"
         />
         {/*Boton de inicio de sesión*/}
         <button
           type="submit"
-          href="/"
-          className="mt-4 p-4 text-2xl bg-neutralbtn hover:bg-deepNeutralbtn border-none shadow-md text-lightGray rounded-3xl"
+          href="/home"
+          className="mt-4 p-4 text-2xl bg-neutralbtn hover:bg-deepNeutralbtn border-none shadow-md text-primary rounded-3xl"
         >
           Iniciar sesión
         </button>
@@ -49,7 +49,7 @@ export default function LoginModal({ isOpen, onClose }) {
             Regístrate
           </Link>
         </p>
-
+        {/*Boton de cerrar*/}
         <button
           onClick={onClose}
           className="m-5 text-2xl rounded-3xl p-4 border-none hover:bg-failed"
